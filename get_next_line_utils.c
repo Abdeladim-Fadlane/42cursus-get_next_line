@@ -6,7 +6,7 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:32:57 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/13 16:07:14 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/13 20:55:40 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,12 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		i;
 	char	*p;
 
+	i = 0;
+	j = 0;
 	if (!s2)
 		return (NULL);
 	if(!s1)
-	{
-		s1 = malloc(1);
-		if(!s1)
-			return 0;
-		s1[0] = '\0';
-	}
-	i = 0;
-	j = 0;
+		s1 = ft_strdup("");
 	p = malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!p)
 		return (NULL);
@@ -52,15 +47,10 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	while (s2[j])
-	{
-		p[i] = s2[j];
-		i++;
-		j++;
-	}
+		p[i++] = s2[j++];
 	p[i] = 0;
 	free(s1);
 	return (p);
-	
 }
 
 char	*ft_strchr(char *p, int c)
