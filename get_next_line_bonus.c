@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:04:28 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 10:12:43 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/14 10:53:06 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"get_next_line.h"
+#include"get_next_line_bonus.h"
 
 char	*get_first_line(char *d)
 {
@@ -75,6 +75,7 @@ char	*get_line(int fd, char *container)
 		if (i == -1)
 		{
 			free(buff);
+			free(container);
 			return (NULL);
 		}
 		buff[i] = '\0';
@@ -86,15 +87,15 @@ char	*get_line(int fd, char *container)
 
 char	*get_next_line(int fd)
 {
-	static char	*container;
+	static char	*container[OPEN_MAX];
 	char		*buff;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	container = get_line(fd, container);
-	if (!container)
+	container[fd] = get_line(fd, container[fd]);
+	if (!container[fd])
 		return (NULL);
-	buff = get_first_line(container);
-	container = get_save_line(container);
+	buff = get_first_line(container[fd]);
+	container[fd] = get_save_line(container[fd]);
 	return (buff);
 }
