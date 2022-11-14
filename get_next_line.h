@@ -6,14 +6,14 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:58:10 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 10:29:25 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:04:14 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 14
+#  define BUFFER_SIZE 2147483647
 # endif
 # include<unistd.h>
 # include<stdlib.h>

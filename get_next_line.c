@@ -6,7 +6,7 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:04:28 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 10:12:43 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:03:11 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ char	*get_line(int fd, char *container)
 		if (i == -1)
 		{
 			free(buff);
+			free(container);
 			return (NULL);
 		}
 		buff[i] = '\0';
