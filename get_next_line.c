@@ -6,20 +6,18 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:04:28 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 18:03:11 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:15:34 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line.h"
 
-char	*get_first_line(char *d)
+char	*get_line(char *d)
 {
 	char	*ptr;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
 	if (!d[0])
 		return (NULL);
 	while (d[i] != '\n' && d[i])
@@ -30,13 +28,12 @@ char	*get_first_line(char *d)
 	i = 0;
 	while (d[i] && d[i] != '\n')
 	{
-		ptr[j] = d[i];
+		ptr[i] = d[i];
 		i++;
-		j++;
 	}
 	if (d[i] == '\n')
-		ptr[j++] = '\n';
-	ptr[j] = '\0';
+		ptr[i++] = '\n';
+	ptr[i] = '\0';
 	return (ptr);
 }
 
@@ -60,7 +57,7 @@ char	*get_save_line(char *s)
 	return (ptr);
 }
 
-char	*get_line(int fd, char *container)
+char	*get_read_line(int fd, char *container)
 {
 	char	*buff;
 	int		i;
@@ -92,10 +89,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	container = get_line(fd, container);
+	container = get_read_line(fd, container);
 	if (!container)
 		return (NULL);
-	buff = get_first_line(container);
+	buff = get_line(container);
 	container = get_save_line(container);
 	return (buff);
 }

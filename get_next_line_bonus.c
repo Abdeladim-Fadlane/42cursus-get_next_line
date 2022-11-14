@@ -6,13 +6,13 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:04:28 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 18:09:11 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:16:52 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"get_next_line_bonus.h"
 
-char	*get_first_line(char *d)
+char	*get_line(char *d)
 {
 	char	*ptr;
 	int		i;
@@ -60,7 +60,7 @@ char	*get_save_line(char *s)
 	return (ptr);
 }
 
-char	*get_line(int fd, char *container)
+char	*get_read_line(int fd, char *container)
 {
 	char	*buff;
 	int		i;
@@ -92,10 +92,10 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	container[fd] = get_line(fd, container[fd]);
+	container[fd] = get_read_line(fd, container[fd]);
 	if (!container[fd])
 		return (NULL);
-	buff = get_first_line(container[fd]);
+	buff = get_line(container[fd]);
 	container[fd] = get_save_line(container[fd]);
 	return (buff);
 }
