@@ -6,7 +6,7 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:04:28 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 18:16:52 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/14 18:19:02 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ char	*get_line(char *d)
 {
 	char	*ptr;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
 	if (!d[0])
 		return (NULL);
 	while (d[i] != '\n' && d[i])
@@ -30,13 +28,12 @@ char	*get_line(char *d)
 	i = 0;
 	while (d[i] && d[i] != '\n')
 	{
-		ptr[j] = d[i];
+		ptr[i] = d[i];
 		i++;
-		j++;
 	}
 	if (d[i] == '\n')
-		ptr[j++] = '\n';
-	ptr[j] = '\0';
+		ptr[i++] = '\n';
+	ptr[i] = '\0';
 	return (ptr);
 }
 
