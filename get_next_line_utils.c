@@ -6,11 +6,11 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:32:57 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 18:07:44 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:58:02 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"get_next_line_bonus.h"
+#include"get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
