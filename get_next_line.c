@@ -6,7 +6,7 @@
 /*   By: afadlane <afadlane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:04:28 by afadlane          #+#    #+#             */
-/*   Updated: 2022/11/14 18:15:34 by afadlane         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:15:38 by afadlane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ char	*get_line(char *d)
 		return (NULL);
 	while (d[i] != '\n' && d[i])
 		i++;
-	ptr = malloc(i + 2);
+	if (d[i] == '\0')
+		ptr = malloc(i + 1);
+	else
+		ptr = malloc(i + 2);
 	if (!ptr)
 		return (NULL);
 	i = 0;
@@ -77,6 +80,8 @@ char	*get_read_line(int fd, char *container)
 		}
 		buff[i] = '\0';
 		container = ft_strjoin(container, buff);
+		if (!container)
+			return (NULL);
 	}
 	free(buff);
 	return (container);
